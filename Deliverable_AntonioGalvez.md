@@ -48,14 +48,13 @@ dim(training); dim(testing)
 ```
 
 ## Plotting the classe
-These few lines of code make the partition of the training data set into two datasets. The new trainig dataset contains a 70% of the data, and the rest is in saved unto the new testing dataset. 
-
+The following line plots the classe paramenter using the new dataset defined for training.
 ```{r}
 plot(training$classe, col = "orange", main="Bar Plot of the partitioning by Classe parameter", xlab="classe variable", ylab="Frequency")
 
 ```
 ## Prediction model: Decision tree
-
+First model and its prediction.
 ```{r}
 Modelo1 <- rpart::rpart(classe ~ ., data= training, method="class")
 pred_Mod1 <- predict(Modelo1, testing, type = "class")
@@ -66,6 +65,7 @@ rpart.plot::rpart.plot(Modelo1, main="Decision Tree", extra="auto", faclen=0)
 caret::confusionMatrix(pred_Mod1, testing$classe)
 ```
 ## Prediction model: Random Forest Algorithm
+Second model and its prediction.
 ```{r}
 Modelo2 <- randomForest::randomForest(classe ~., training, method = "class")
 pred_Mod2 <- predict(Modelo2, testing, type = "class")
