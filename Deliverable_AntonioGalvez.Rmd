@@ -78,9 +78,8 @@ Random Forest algorithm achieve better results than Decision Trees.
 Accuracy for Random Forest model was 1.000 (95% CI: (0.994, 1)) compared to Accuracy : 0.9997 (95% CI : (0.9988, 1) for Decision Tree model. 
 For the reason mentioned abobe the random Forest model is choosen.
 
-##Submission
+## Submission
+The following line makes a prediction using the Random Forest Model defined above and the dataset given in the problem description.
 ```{r}
 predict(Modelo2, testing1, type = "class")
-
-#caret::confusionMatrix(finalPred, testing$classe)
 ```
